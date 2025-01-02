@@ -1,6 +1,5 @@
 package org.example;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,7 +8,7 @@ import java.util.Arrays;
 import static org.example.JdbcConnection.getConnection;
 
 public class BatchUpdateExample {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
 
         String insertQuery = "INSERT INTO STUDENTS (NAME, LASTNAME, GROUP_NAME, AGE) VALUES (?, ?, ?, ?)";

@@ -1,6 +1,5 @@
 package org.example;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,13 +11,14 @@ public class CreateDatabaseTable {
         try (Connection connection = getConnection()) {
             Statement statement = connection.createStatement();
 
-            String createTableSQL = "CREATE TABLE IF NOT EXISTS students (" +
-                    "id INT AUTO_INCREMENT PRIMARY KEY," +
-                    "name VARCHAR(255) NOT NULL," +
-                    "lastname VARCHAR(255) NOT NULL," +
-                    "group_name VARCHAR(255) NOT NULL," +
-                    "age INT NOT NULL" +
-                    ")";
+            String createTableSQL = """
+                    CREATE TABLE IF NOT EXISTS students (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(255) NOT NULL,
+                        lastname VARCHAR(255) NOT NULL,
+                        group_name VARCHAR(255) NOT NULL,
+                        age INT NOT NULL
+                    )""";
 
             statement.executeUpdate(createTableSQL);
 
@@ -26,8 +26,6 @@ public class CreateDatabaseTable {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 }

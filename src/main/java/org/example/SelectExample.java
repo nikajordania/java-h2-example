@@ -11,19 +11,7 @@ import static org.example.JdbcConnection.getConnection;
 public class SelectExample {
 
     public static void main(String[] args) {
-//        Connection conn = DriverManager.getConnection(myUrl, USER, PASS);
-//        String query = "INSERT INTO students (ID, last_name, first_name, birthday, hometown) VALUES (?, ?, ?, ?, ?)";
-//        PreparedStatement preparedStmt = conn.prepareStatement(query);
-//        preparedStmt.setInt(1, 808027);
-//        preparedStmt.setString(2, "Davis");
-//        preparedStmt.setString(3, "Felicita");
-//        preparedStmt.setDate(4, startDate);
-//        preparedStmt.setString(5, "Venice");
-//        preparedStmt.execute();
-//        conn.close();
-
-
-        String selectQuery = "SELECT * FROM STUDENTS";
+        String selectQuery = "SELECT * FROM STUDENTS WHERE AGE > 20";
 
         try (Connection connection = getConnection();
              Statement statement = connection.createStatement();) {
@@ -43,8 +31,6 @@ public class SelectExample {
 
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
