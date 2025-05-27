@@ -7,6 +7,7 @@ import java.util.Properties;
 
 public class PropertiesExample {
     public static void main(String[] args) throws IOException {
+        // This example demonstrates how to read properties from a file using Java's Properties class.
         Properties prop = new Properties();
         InputStream input = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/config.properties");
 

@@ -11,6 +11,8 @@ public class CreateDatabaseTable {
         try (Connection connection = getConnection()) {
             Statement statement = connection.createStatement();
 
+            // This code creates a table named "students" in the H2 database if it does not already exist.
+            //language=sql
             String createTableSQL = """
                     CREATE TABLE IF NOT EXISTS students (
                         id INT AUTO_INCREMENT PRIMARY KEY,

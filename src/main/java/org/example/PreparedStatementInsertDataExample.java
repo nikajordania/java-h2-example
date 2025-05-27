@@ -14,17 +14,23 @@ public class PreparedStatementInsertDataExample {
         insertUser("Giorgi", "asfsgf", "GroupC", 123);
     }
 
-
+// This method inserts a user into the STUDENTS table using a PreparedStatement.
     public static void insertUser(String name, String lastname, String group_name, int age) {
         try (Connection connection = getConnection()) {
+
+            // This is SQL insert query template with placeholders for parameters.
             String insertSQL = "INSERT INTO STUDENTS (name, lastname, group_name, age) VALUES (?, ?, ?, ?)";
 
+            // Prepare the SQL statement to prevent SQL injection and to set parameters dynamically.
             try (PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+
+                // Set the parameters for the prepared statement.
                 preparedStatement.setString(1, name);
                 preparedStatement.setString(2, lastname);
                 preparedStatement.setString(3, group_name);
                 preparedStatement.setInt(4, age);
 
+                // Execute the update and get the number of rows affected.
                 int rowsAffected = preparedStatement.executeUpdate();
 
                 if (rowsAffected > 0) {
