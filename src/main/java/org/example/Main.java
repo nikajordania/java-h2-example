@@ -24,7 +24,8 @@ public class Main {
                 """;
 
         //try-with-resources
-        try (Connection connection = DriverManager.getConnection(jdbcURL); Statement statement = connection.createStatement()) {
+        try (Connection connection = DriverManager.getConnection(jdbcURL);
+             Statement statement = connection.createStatement()) {
             statement.execute(sql);
 
             System.out.println("Created table students.");

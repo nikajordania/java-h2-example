@@ -17,5 +17,5 @@ SQL resources:
 * https://www.w3schools.com/sql/sql_delete.asp
 
 Connect to a database in IntelliJ IDEA:
-* https://www.jetbrains.com/help/idea/h2.html#3136b793
+* https://www.jetbrains.com/help/idea/h2.html#connection_type_embedded
 * https://www.jetbrains.com/help/idea/connecting-to-a-database.html
