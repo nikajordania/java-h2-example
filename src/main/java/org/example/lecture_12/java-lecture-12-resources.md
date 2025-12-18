@@ -1,4 +1,4 @@
-# Java Lecture 11 — Useful Resources (student-friendly)
+# Java Lecture 12 Resources
 
 This short guide organizes key links and small examples to help you with Java JDBC, generating fake data, and reducing boilerplate with Lombok.
 

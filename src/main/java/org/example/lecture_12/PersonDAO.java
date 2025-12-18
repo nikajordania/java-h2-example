@@ -59,6 +59,7 @@ public class PersonDAO {
         }
     }
 
+    // Create the persons table if it doesn't exist
     public static void createTable() {
         try (Statement statement = connection.createStatement()) {
             String createTableSQL = """
@@ -78,6 +79,8 @@ public class PersonDAO {
 
     // Insert a single person and set the generated id on the Person object
     public static void insertPerson(Person person) throws RuntimeException {
+
+        // Use RETURN_GENERATED_KEYS to retrieve the auto-generated ID (not necessary parameter)
         try (PreparedStatement preparedStatement = connection.prepareStatement(
                 "INSERT INTO persons (name, lastname, group_name, age) VALUES (?, ?, ?, ?)",
                 Statement.RETURN_GENERATED_KEYS)) {
@@ -117,6 +120,7 @@ public class PersonDAO {
         return persons;
     }
 
+    // Retrieve a person by their ID
     public static Person getPersonById(int id) {
         try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM persons WHERE id = ?")) {
             preparedStatement.setInt(1, id);
@@ -137,6 +141,7 @@ public class PersonDAO {
         return null;
     }
 
+    // Update an existing person's details
     public static void updatePerson(Person person) {
         try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE persons SET name = ?, lastname = ?, group_name = ?, age = ? WHERE id = ?")) {
             preparedStatement.setString(1, person.getName());
@@ -150,6 +155,7 @@ public class PersonDAO {
         }
     }
 
+    // Delete a person by their ID
     public static void deletePerson(int id) {
         try (PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM persons WHERE id = ?")) {
             preparedStatement.setInt(1, id);
