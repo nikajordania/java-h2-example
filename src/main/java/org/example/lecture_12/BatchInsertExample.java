@@ -1,4 +1,4 @@
-package org.example;
+package org.example.lecture_12;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 import static org.example.JdbcConnection.getConnection;
-// This class demonstrates how to perform batch updates in a database using JDBC.
 
-public class BatchUpdateExample {
+// This class demonstrates how to perform batch insert in a database using JDBC.
+public class BatchInsertExample {
     public static void main(String[] args) {
 
         String insertQuery = "INSERT INTO STUDENTS (NAME, LASTNAME, GROUP_NAME, AGE) VALUES (?, ?, ?, ?)";
